@@ -8,16 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           
-      - name: Run Quality Gate (App Logic Only)
-        run: npm test -- -g "should load the homepage successfully"
+      - name: Install Dependencies
+        # This step is CRITICAL. It installs mocha in the cloud.
+        run: npm install 
         
-      - name: Run Quality Gate (Tests)
-        run: npm test
-        
-      - name: Build Docker Image (Cloud Build)
-        run: docker build -t devops-improvement-app .
+      - name: Run Quality Gate (Logic Only)
+        # We use 'npx mocha' to ensure it finds the installed tool
+        run: npx mocha test.js --exit -g "should load the homepage successfully"
+
+      - name: Build Docker Image
+        run: docker build -t devops-app .
