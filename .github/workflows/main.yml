@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install Dependencies
-        run: npm install
+      - name: Run Quality Gate (App Logic Only)
+        run: npm test -- -g "should load the homepage successfully"
         
       - name: Run Quality Gate (Tests)
         run: npm test
