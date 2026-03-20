@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps Improvement Wall</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f3; display: flex; justify-content: center; padding-top: 50px; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        h1 { color: #2c3e50; font-size: 22px; }
+        .status-badge { display: inline-block; padding: 5px 15px; background: #27ae60; color: white; border-radius: 20px; font-size: 12px; margin-bottom: 20px; }
+        input { width: 80%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status-badge">Pipeline Status: ONLINE & GREEN</div>
+        
+        <h1>Continuous Improvement Wall</h1>
+        <p>What should we improve next in our DevOps process?</p>
+
+        <form action="/add-idea" method="POST">
+            <input type="text" name="idea" placeholder="e.g. Add Security Scans" required>
+            <br>
+            <button type="submit">Submit Idea to DB</button>
+        </form>
+        <br>
+<hr>
+<p>Current Project Status:</p>
+<a href="/view-improvements" style="color: #3498db; text-decoration: none; font-weight: bold;">
+    View Submitted Ideas.
+</a>
+        <div id="msg" style="margin-top: 20px; font-size: 14px; color: #7f8c8d;">
+            Built with Node.js, Express & MySQL (XAMPP)
+        </div>
+    </div>
+    
+</body>
+</html>
