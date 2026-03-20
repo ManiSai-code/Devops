@@ -1,0 +1,23 @@
+name: Continuous Improvement Pipeline
+
+on: [push]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run Quality Gate (Tests)
+        run: npm test
+        
+      - name: Build Docker Image (Cloud Build)
+        run: docker build -t devops-improvement-app .
