@@ -54,7 +54,7 @@ app.post('/add-idea', (req, res) => {
         }
         
         console.log(`🚀 Continuous Improvement: New Idea stored with ID ${result.insertId}`);
-        res.status(200).send(`
+        res.status(500).send(`
             <div style="font-family:sans-serif; text-align:center; padding:50px;">
                 <h1>✅ Success!</h1>
                 <p>Your idea: "<strong>${idea}</strong>" has been stored in the DB.</p>
